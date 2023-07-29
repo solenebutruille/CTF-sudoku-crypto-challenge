@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sudoku CTF Challenge</title>
+  <link rel="icon" type="image/x-icon" href="./img/logo.png">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-size: 20px;
+      border: 1px solid #ccc;
+    }
+    .border-top {
+      border-top: 4px solid #000000;
+    }
+    .border-bottom {
+      border-bottom: 4px solid #000000;
+    }
+    .border-right {
+      border-right: 4px solid #000000;
+    }
+    .border-left {
+      border-left: 4px solid #000000;
+    }
+    .cell-white {
+      background-color: #f9f9f9;
+    }
+    .cell-orange {
+      background-color: #f2aa63;
+    }
+    .cell-grey {
+      background-color: #a2abad;
+    }
+    .cell-blue {
+      background-color: #99e6ff;
+    }
+    .cell-green {
+      background-color: #a6f1a0;
+    }
+    .cell-purple {
+      background-color: #d082ee;
+    }
+    .cell-yellow {
+      background-color: #e7db70;
+    }
+    .title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .rotated-text-right {
+      writing-mode: vertical-lr;
+      margin: 23px;
+      transform: rotate(180deg);
+      font-size: 16px;
+    }
+    .rotated-text-left {
+      writing-mode: vertical-lr;
+      margin: 23px;
+      transform: rotate(0deg);
+      font-size: 16px;
+    }
+    .text-around-grid{
+      font-size: 16px;
+      text-align: center;
+    }
+    .grid-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .image-vector {
+      width: 150px;
+      height: 350px;
+      margin: 0 10px;
+    }
+    .image-key {
+      width: 250px;
+      height: 350px;
+      margin: 0 10px;
+    }
+    .cure {
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">An Extraordinary Sudoku: 
+    <br>256</br>
+    Clues to the Brilliant Cure
+  </h1>
+
+  <div class="text-around-grid">
+    <text class="cell-purple">8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</text>
+  </div>
+  <br></br>
+  <div class="grid-container">
+    <div class="rotated-text-right cell-green">dac93e391714bd522e88ab23e382191f</div>
+    <table>
+      <tr>
+        <td class="cell-grey border-top border-left"></td>
+        <td class="cell-purple border-top"></td>
+        <td class="cell-purple border-top border-right"></td>
+        <td class="cell-green border-top border-left"></td>
+        <td class="cell-white border-top"></td>
+        <td class="cell-orange border-top border-right"></td>
+        <td class="cell-grey border-top border-left"></td>
+        <td class="cell-grey border-top"></td>
+        <td class="cell-white border-top border-right"></td>
+      </tr>
+      <tr>
+        <td class="cell-white border-left"></td>
+        <td class="cell-blue"></td>
+        <td class="cell-white border-right"></td>
+        <td class="cell-yellow border-left"></td>
+        <td class="cell-orange"></td>
+        <td class="cell-green border-right"></td>
+        <td class="cell-white border-left"></td>
+        <td class="cell-white"></td>
+        <td class="cell-grey border-right"></td>
+      </tr>
+      <tr>
+        <td class="cell-orange border-left border-bottom"></td>
+        <td class="cell-orange border-bottom"></td>
+        <td class="cell-grey border-right border-bottom"></td>
+        <td class="cell-white border-left border-bottom"></td>
+        <td class="cell-white border-bottom"></td>
+        <td class="cell-white border-right border-bottom"></td>
+        <td class="cell-yellow border-left border-bottom"></td>
+        <td class="cell-purple border-bottom"></td>
+        <td class="cell-orange border-right border-bottom"></td>
+      </tr>
+      <tr>
+        <td class="cell-grey border-left border-top"></td>
+        <td class="cell-grey border-top"></td>
+        <td class="cell-green border-right border-top"></td>
+        <td class="cell-white border-left border-top"></td>
+        <td class="cell-white border-top"></td>
+        <td class="cell-yellow border-right border-top"></td>
+        <td class="cell-grey border-left border-top"></td>
+        <td class="cell-white border-top"></td>
+        <td class="cell-grey border-right border-top"></td>
+      </tr>
+      <tr>
+        <td class="cell-white border-left"></td>
+        <td class="cell-white"></td>
+        <td class="cell-orange border-right"></td>
+        <td class="cell-white border-left"></td>
+        <td class="cell-orange"></td>
+        <td class="cell-white border-right"></td>
+        <td class="cell-green border-left"></td>
+        <td class="cell-yellow"></td>
+        <td class="cell-white border-right"></td>
+      </tr>
+      <tr>
+        <td class="cell-orange border-left border-bottom"></td>
+        <td class="cell-white border-bottom"></td>
+        <td class="cell-blue border-right border-bottom"></td>
+        <td class="cell-grey border-left border-bottom"></td>
+        <td class="cell-orange border-bottom"></td>
+        <td class="cell-purple border-right border-bottom"></td>
+        <td class="cell-white border-left border-bottom"></td>
+        <td class="cell-orange border-bottom"></td>
+        <td class="cell-orange border-right border-bottom"></td>
+      </tr>
+      <tr>
+        <td class="cell-blue border-left border-top"></td>
+        <td class="cell-green border-top"></td>
+        <td class="cell-orange border-right border-top"></td>
+        <td class="cell-grey border-left border-top"></td>
+        <td class="cell-white border-top"></td>
+        <td class="cell-orange border-right border-top"></td>
+        <td class="cell-grey border-left border-top"></td>
+        <td class="cell-grey border-top"></td>
+        <td class="cell-white border-right border-top"></td>
+      </tr>
+      <tr>
+        <td class="cell-orange border-left"></td>
+        <td class="cell-grey"></td>
+        <td class="cell-white border-right"></td>
+        <td class="cell-white border-left"></td>
+        <td class="cell-purple"></td>
+        <td class="cell-white border-right"></td>
+        <td class="cell-white border-left"></td>
+        <td class="cell-blue"></td>
+        <td class="cell-purple border-right"></td>
+      </tr>
+      <tr>
+        <td class="cell-yellow border-bottom border-left"></td>
+        <td class="cell-white border-bottom"></td>
+        <td class="cell-grey border-bottom border-right"></td>
+        <td class="cell-white border-bottom border-left"></td>
+        <td class="cell-blue border-bottom"></td>
+        <td class="cell-orange border-bottom border-right"></td>
+        <td class="cell-green border-bottom border-left"></td>
+        <td class="cell-grey border-bottom"></td>
+        <td class="cell-orange border-bottom border-right"></td>
+      </tr>
+    </table>
+    <div class="rotated-text-left cell-blue">4fbca79cb2b9a0c138ed6ccb34e203e45fa4b7f6</div>
+  </div>
+  <div class="text-around-grid">
+     <text class="cell-yellow">JDJhJDEwJFE0b2Q2eVZ3VE1OSGRGYUdXczFtSWVKRXhKd0psV05CQ2l0eDZLZlJPUmMxY05QNUNPLmd5</text>
+  </div>
+  <br></br>
+
+  <div class="image-container">
+    <img class="image-key" src="./img/key.png" alt="Key">
+    <img class="image-vector" src="./img/vector.jpeg" alt="Vector">
+  </div>
+
+  <p class="cure">The cure is : eda46763508ed30dbe658769329f54e2b6dfc14282f1092ab47d1f1af1ffa3d8</p>
+</body>
+</html>
+
